@@ -1,0 +1,209 @@
+@import './variables.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: var(--font-body);
+    background-color: var(--color-obsidian);
+    color: var(--color-text-primary);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: auto; /* Defer to Lenis for smooth scrolling */
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: var(--color-obsidian);
+    color: var(--color-text-primary);
+    overflow-x: hidden;
+    line-height: var(--leading-normal);
+  }
+
+  /* Lenis CSS integration */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
+  /* Headings typography defaults */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+    color: var(--color-text-primary);
+  }
+
+  /* Selection style */
+  ::selection {
+    background-color: var(--color-neon);
+    color: var(--color-obsidian);
+  }
+
+  /* Focus ring style */
+  :focus-visible {
+    outline: 2px solid var(--color-neon);
+    outline-offset: 3px;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-obsidian);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-graphite);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-neon);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Typography Utility Classes */
+@layer utilities {
+  .text-display-xl {
+    font-family: var(--font-display);
+    font-size: var(--text-display-xl);
+    line-height: var(--leading-none);
+    letter-spacing: var(--tracking-tighter);
+    font-weight: 800;
+  }
+
+  .text-display-lg {
+    font-family: var(--font-display);
+    font-size: var(--text-display-lg);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tighter);
+    font-weight: 700;
+  }
+
+  .text-h1 {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    font-weight: 700;
+  }
+
+  .text-h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    font-weight: 700;
+  }
+
+  .text-h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+    font-weight: 700;
+  }
+
+  .text-h4 {
+    font-family: var(--font-display);
+    font-size: var(--text-h4);
+    line-height: var(--leading-snug);
+    font-weight: 600;
+  }
+
+  .text-h5 {
+    font-family: var(--font-display);
+    font-size: var(--text-h5);
+    line-height: var(--leading-snug);
+    font-weight: 600;
+  }
+
+  .text-h6 {
+    font-family: var(--font-display);
+    font-size: var(--text-h6);
+    line-height: var(--leading-normal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .text-body-lg {
+    font-family: var(--font-body);
+    font-size: var(--text-body-lg);
+    line-height: var(--leading-relaxed);
+  }
+
+  .text-body-reg {
+    font-family: var(--font-body);
+    font-size: var(--text-body-reg);
+    line-height: var(--leading-normal);
+  }
+
+  .text-body-sm {
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-normal);
+  }
+
+  .text-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-eyebrow);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+  }
+
+  .text-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}

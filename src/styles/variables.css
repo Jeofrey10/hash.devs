@@ -1,0 +1,157 @@
+/**
+ * HASH.DEVS — Design System Tokens & CSS Variables
+ * Phase 02: Design System & Core UI Engineering
+ */
+
+:root {
+  /* ==========================================================================
+     1. Brand Colors (Exact Specifications)
+     ========================================================================== */
+  --color-obsidian: #050505;
+  --color-neon: #35E85B;
+  --color-white: #FFFFFF;
+  --color-graphite: #171A18;
+
+  /* Extended Surface Colors */
+  --color-surface-base: #050505;
+  --color-surface: #0B0D0C;
+  --color-surface-elevated: #111412;
+  --color-surface-card: #131715;
+  --color-surface-hover: #191E1B;
+  --color-surface-active: #212824;
+
+  /* Border Colors */
+  --color-border-subtle: #141815;
+  --color-border: #1E2420;
+  --color-border-hover: #2E3832;
+  --color-border-accent: rgba(53, 232, 91, 0.3);
+  --color-border-active: #35E85B;
+
+  /* Text & Content Hierarchy */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #9EA5A1;
+  --color-text-tertiary: #5A625D;
+  --color-text-accent: #35E85B;
+  --color-text-inverse: #050505;
+  --color-muted: #8E9490;
+  --color-subtle: #4D534F;
+
+  /* Interactive States */
+  --color-neon-hover: #2ECC4E;
+  --color-neon-dim: rgba(53, 232, 91, 0.12);
+  --color-neon-ghost: rgba(53, 232, 91, 0.06);
+  --color-neon-glow: rgba(53, 232, 91, 0.25);
+  --color-hover-overlay: rgba(255, 255, 255, 0.04);
+  --color-focus-ring: rgba(53, 232, 91, 0.5);
+
+  /* Semantic Status Indicators (Dark Editorial Aesthetic) */
+  --color-semantic-success: #35E85B;
+  --color-semantic-success-bg: rgba(53, 232, 91, 0.1);
+  --color-semantic-warning: #E5A93C;
+  --color-semantic-warning-bg: rgba(229, 169, 60, 0.1);
+  --color-semantic-error: #E5484D;
+  --color-semantic-error-bg: rgba(229, 72, 77, 0.1);
+  --color-semantic-info: #4895EF;
+  --color-semantic-info-bg: rgba(72, 149, 239, 0.1);
+
+  /* ==========================================================================
+     2. Typography System
+     ========================================================================== */
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Manrope', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Manrope', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Mono', 'SF Mono', Consolas, Monaco, monospace;
+
+  /* Fluid Typographic Scale */
+  --text-display-xl: clamp(3.5rem, 8vw + 1rem, 8.5rem);
+  --text-display-lg: clamp(2.75rem, 5.5vw + 0.5rem, 5.5rem);
+  --text-h1: clamp(2.25rem, 4vw + 0.5rem, 4rem);
+  --text-h2: clamp(1.85rem, 3vw + 0.25rem, 3rem);
+  --text-h3: clamp(1.5rem, 2vw + 0.25rem, 2.25rem);
+  --text-h4: clamp(1.25rem, 1.4vw + 0.2rem, 1.75rem);
+  --text-h5: clamp(1.1rem, 1vw + 0.15rem, 1.35rem);
+  --text-h6: 1rem;
+
+  --text-body-lg: clamp(1.125rem, 0.5vw + 1rem, 1.25rem);
+  --text-body-reg: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-eyebrow: 0.8125rem;
+  --text-meta: 0.75rem;
+
+  /* Line Heights */
+  --leading-none: 1.0;
+  --leading-tight: 1.08;
+  --leading-snug: 1.25;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.75;
+
+  /* Letter Spacing */
+  --tracking-tighter: -0.045em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.06em;
+  --tracking-widest: 0.18em;
+
+  /* ==========================================================================
+     3. Layout & Spacing
+     ========================================================================== */
+  --container-max-width: 1720px;
+  --container-editorial-width: 1400px;
+  --container-narrow-width: 1120px;
+  --container-text-width: 780px;
+
+  --space-page-x: clamp(1.25rem, 4vw, 4rem);
+  --space-section-y: clamp(4.5rem, 8vw, 10.5rem);
+  --space-gutter: clamp(1rem, 2.5vw, 2.5rem);
+
+  /* Spacing Scale */
+  --space-3xs: 0.125rem; /* 2px */
+  --space-2xs: 0.25rem;  /* 4px */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 0.75rem;   /* 12px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4.5rem;   /* 72px */
+  --space-4xl: 6rem;     /* 96px */
+  --space-5xl: 8rem;     /* 128px */
+
+  /* Breakpoints Reference */
+  --screen-mobile: 320px;
+  --screen-mobile-lg: 480px;
+  --screen-tablet: 768px;
+  --screen-laptop: 1024px;
+  --screen-desktop: 1440px;
+  --screen-wide: 1920px;
+
+  /* ==========================================================================
+     4. Animation & Physics Timing
+     ========================================================================== */
+  --duration-instant: 100ms;
+  --duration-fast: 220ms;
+  --duration-normal: 400ms;
+  --duration-slow: 750ms;
+  --duration-cinematic: 1200ms;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-magnetic: cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* ==========================================================================
+     5. Z-Index Layer Architecture
+     ========================================================================== */
+  --z-behind: -1;
+  --z-base: 0;
+  --z-canvas-3d: 1;
+  --z-content: 10;
+  --z-header: 50;
+  --z-dropdown: 60;
+  --z-sticky: 70;
+  --z-cursor: 90;
+  --z-modal: 100;
+  --z-toast: 110;
+  --z-preloader: 120;
+}

@@ -1,0 +1,7 @@
+# HASH.DEVS Robots Configuration
+User-agent: *
+Allow: /
+Disallow: /lab
+
+Sitemap: https://hash.devs/sitemap.xml
+
