@@ -122,7 +122,7 @@ export function FeaturedProject({ project, className = '' }: FeaturedProjectProp
           <div>
             {/* Project Title with Kinetic Hover Arrow */}
             <div className="flex items-baseline justify-between gap-4">
-              <h3 className="font-display text-2xl sm:text-3xl laptop:text-4xl desktop:text-[2.6rem] font-extrabold tracking-tight text-brand-white transition-colors duration-300 group-hover:text-brand-white">
+              <h3 className="font-display text-[clamp(1.4rem,4.5vw,2.6rem)] font-extrabold tracking-tight text-brand-white transition-colors duration-300 group-hover:text-brand-white break-words pr-2">
                 {project.title}
               </h3>
               <span

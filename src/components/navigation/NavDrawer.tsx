@@ -54,13 +54,6 @@ const NAV_ITEMS: NavItemMeta[] = [
     tagline: 'Initiate a project commission or explore partnership opportunities.',
     deliverables: ['Open For Q1/Q2', 'Global Availability', 'Response within 24h'],
   },
-  {
-    index: '06',
-    label: 'DESIGN LAB',
-    to: '/lab',
-    tagline: 'Architectural token matrix, physics playground & core UI library.',
-    deliverables: ['Token Systems', 'Magnetic Physics', 'Component Testing'],
-  },
 ];
 
 export function NavDrawer({ isOpen, onClose }: NavDrawerProps) {

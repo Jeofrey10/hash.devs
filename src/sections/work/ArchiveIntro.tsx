@@ -21,8 +21,8 @@ export function ArchiveIntro() {
 
         {/* Monumental Headline & Supporting Statement */}
         <div className="grid grid-cols-1 laptop:grid-cols-12 gap-8 laptop:gap-16 items-start">
-          <div className="laptop:col-span-8 min-w-0">
-            <h2 className="font-display font-extrabold tracking-tight text-brand-white leading-[1.0] text-3xl xs:text-4xl sm:text-5xl tablet:text-6xl laptop:text-[4.25rem]">
+          <div className="laptop:col-span-8 min-w-0 pr-2">
+            <h2 className="font-display font-extrabold tracking-tight text-brand-white leading-[1.0] text-[clamp(1.75rem,5.5vw,4.25rem)] break-words">
               {archiveIntro.headline}
             </h2>
           </div>

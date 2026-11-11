@@ -21,8 +21,8 @@ export function ProjectDisciplines() {
           </div>
 
           <div className="grid grid-cols-1 laptop:grid-cols-12 gap-8 items-end justify-between pb-8 border-b border-brand-border/60">
-            <div className="laptop:col-span-8 min-w-0">
-              <h2 className="font-display font-extrabold tracking-tight text-brand-white leading-[1.0] text-3xl xs:text-4xl sm:text-5xl laptop:text-[3.75rem]">
+            <div className="laptop:col-span-8 min-w-0 pr-2">
+              <h2 className="font-display font-extrabold tracking-tight text-brand-white leading-[1.0] text-[clamp(1.75rem,5.5vw,3.75rem)] break-words">
                 ENGINEERING EXPERTISE ACROSS THE ARCHIVE
               </h2>
             </div>

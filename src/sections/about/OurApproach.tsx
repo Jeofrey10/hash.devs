@@ -33,7 +33,7 @@ export function OurApproach() {
             </EyebrowLabel>
           </div>
 
-          <h2 className="font-display font-extrabold tracking-tight text-brand-white leading-tight text-3xl sm:text-4xl laptop:text-5xl">
+          <h2 className="font-display font-extrabold tracking-tight text-brand-white leading-tight text-[clamp(1.65rem,5.5vw,3.25rem)] break-words pr-2">
             {approach.title}
           </h2>
         </div>

@@ -53,33 +53,33 @@ export function ServiceRow({
       {/* Main Row Header Header (Always Visible) */}
       <div className="py-8 sm:py-10 laptop:py-12 px-4 sm:px-8 laptop:px-12 flex flex-col tablet:flex-row tablet:items-center justify-between gap-6">
         {/* Left: Number + Title + Category */}
-        <div className="flex items-start tablet:items-center gap-6 sm:gap-10 min-w-0">
+        <div className="flex items-start tablet:items-center gap-4 sm:gap-6 laptop:gap-10 min-w-0 pr-2">
           {/* Large Numbered Identifier */}
           <span
             className={cn(
-              'font-mono font-bold text-2xl sm:text-3xl laptop:text-4xl transition-colors duration-200 shrink-0',
+              'font-mono font-bold text-2xl sm:text-3xl laptop:text-4xl transition-colors duration-200 shrink-0 pt-0.5 tablet:pt-0',
               isExpanded ? 'text-brand-neon' : 'text-brand-muted/60 group-hover:text-brand-white'
             )}
           >
             {service.index}
           </span>
 
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             {/* Technical Category Label */}
-            <div className="font-mono text-xs text-brand-muted/70 tracking-widest uppercase mb-1 flex items-center gap-2">
+            <div className="font-mono text-[10px] sm:text-xs text-brand-muted/70 tracking-widest uppercase mb-1.5 flex items-center gap-2 flex-wrap">
               <span
                 className={cn(
-                  'h-1.5 w-1.5 rounded-full transition-colors duration-200',
+                  'h-1.5 w-1.5 rounded-full transition-colors duration-200 shrink-0',
                   isExpanded ? 'bg-brand-neon animate-pulse' : 'bg-brand-border group-hover:bg-brand-neon/60'
                 )}
               />
-              <span>{service.category}</span>
+              <span className="break-words">{service.category}</span>
             </div>
 
             {/* Service Title */}
             <h3
               className={cn(
-                'font-display font-extrabold text-2xl sm:text-3xl laptop:text-4xl tracking-tight transition-colors duration-200',
+                'font-display font-extrabold text-[clamp(1.25rem,4.5vw,2.25rem)] tracking-tight leading-[1.1] transition-colors duration-200 break-words',
                 isExpanded ? 'text-brand-white' : 'text-brand-white/90 group-hover:text-brand-white'
               )}
             >
@@ -139,7 +139,7 @@ export function ServiceRow({
                   {service.capabilities.map((cap, cIdx) => (
                     <span
                       key={cIdx}
-                      className="px-3 py-1.5 rounded-full border border-brand-border/80 bg-brand-surface/60 font-mono text-xs text-brand-white/90 hover:border-brand-neon/50 transition-colors duration-200"
+                      className="px-3 py-1.5 rounded-full border border-brand-border/80 bg-brand-surface/60 font-mono text-[11px] sm:text-xs text-brand-white/90 hover:border-brand-neon/50 transition-colors duration-200 break-words max-w-full"
                     >
                       {cap}
                     </span>

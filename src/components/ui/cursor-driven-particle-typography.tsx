@@ -375,10 +375,10 @@ export function CursorDrivenParticleTypography({
       */}
       <h2
         ref={headlineRef}
-        className="relative z-10 font-display text-[clamp(1.4rem,3.4vw,3.25rem)] font-extrabold tracking-tight text-brand-white uppercase leading-[1.08] text-center max-w-5xl mx-auto select-text"
+        className="relative z-10 font-display text-[clamp(1.1rem,3.2vw,3.25rem)] font-extrabold tracking-tight text-brand-white uppercase leading-[1.1] text-center max-w-5xl mx-auto select-text break-words px-2"
       >
         {lines.map((line, idx) => (
-          <span key={idx} className="block manifesto-line whitespace-nowrap">
+          <span key={idx} className="block manifesto-line">
             {line}
           </span>
         ))}

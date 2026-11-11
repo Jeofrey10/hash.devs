@@ -140,14 +140,14 @@ export function ProjectArchiveCard({ project, index }: ProjectArchiveCardProps) 
             </div>
 
             {/* Dedicated Responsive Bottom Metadata & Action Bar */}
-            <div className="relative z-10 w-full bg-brand-surface/95 border-t border-brand-border/60 px-4 py-3 sm:px-5 sm:py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 min-w-0">
-              <div className="flex items-center gap-2 font-mono text-[11px] text-brand-muted truncate min-w-0">
+            <div className="relative z-10 w-full bg-brand-surface/95 border-t border-brand-border/60 px-4 py-3 sm:px-5 sm:py-3.5 flex flex-col xs:flex-row xs:items-center justify-between gap-2.5 sm:gap-4 min-w-0">
+              <div className="flex items-center gap-2 font-mono text-[10px] sm:text-[11px] text-brand-muted truncate min-w-0">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand-neon animate-pulse shrink-0" />
                 <span className="text-white/40 uppercase shrink-0">ARTIFACT //</span>
                 <span className="text-brand-white font-medium truncate">{project.headline}</span>
               </div>
 
-              <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto font-mono text-xs font-bold text-brand-neon group-hover/visual:text-brand-white transition-colors duration-200">
+              <div className="flex items-center gap-1.5 shrink-0 self-start xs:self-auto font-mono text-[11px] sm:text-xs font-bold text-brand-neon group-hover/visual:text-brand-white transition-colors duration-200">
                 <span>VIEW CASE STUDY</span>
                 <span className="group-hover/visual:translate-x-1 transition-transform duration-200">↗</span>
               </div>

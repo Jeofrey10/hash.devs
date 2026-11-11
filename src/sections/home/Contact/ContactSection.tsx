@@ -125,7 +125,7 @@ export function ContactSection() {
             <span>STUDIO MANIFESTO // FINAL POSITION</span>
           </div>
 
-          <h3 className="font-display text-2xl xs:text-3xl sm:text-4xl laptop:text-5xl desktop:text-[3.5rem] font-extrabold tracking-tight text-brand-white uppercase leading-[1.05]">
+          <h3 className="font-display text-[clamp(1.25rem,4.5vw,3.5rem)] font-extrabold tracking-tight text-brand-white uppercase leading-[1.08] break-words pr-2 max-w-4xl mx-auto">
             {CONTACT_COPY.manifesto}
           </h3>
 

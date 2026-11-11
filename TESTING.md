@@ -38,11 +38,11 @@ Creative technology websites require specialized testing methodologies that vali
   - Scroll down past 180px: verify auto-hide (`-translate-y-full`).
   - Scroll up: verify smooth slide down (`translate-y-0`).
   - Click `Let's Talk` CTA: verifies magnetic attraction and navigation to `/contact`.
-  - Click `SOUND [ON/OFF]`: verifies Web Audio ambient drone toggles smoothly.
+  - Verified removal of sound option and Design Lab: no audio toggles or /lab links exist.
 - **Mobile Navigation:**
   - Emulate 320px (iPhone SE) and 390px (iPhone 14/15) viewports.
   - Click menu toggle: verify animated hamburger morphs into cross `X`.
-  - Verify full-screen overlay opens with GSAP staggered link reveals.
+  - Verify full-screen overlay opens with GSAP staggered link reveals (01 Home, 02 About, 03 Services, 04 Work, 05 Contact).
   - Verify Lenis background scrolling is completely locked (`overflow: hidden`).
   - Press `Escape` key or click close: verify menu closes smoothly and body scroll unlocks.
 

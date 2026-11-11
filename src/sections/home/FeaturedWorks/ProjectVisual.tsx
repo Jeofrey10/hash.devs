@@ -42,18 +42,18 @@ function PixwallVisual({ className }: ProjectSubVisualProps) {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_28%,rgba(255,255,255,0.08)_0%,transparent_65%)] pointer-events-none" />
 
       {/* Top Storefront HUD Bar */}
-      <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-3 font-mono text-[11px] text-brand-muted tracking-wider">
-        <div className="flex items-center gap-2.5">
-          <span className="h-1.5 w-1.5 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
-          <span className="text-brand-white font-semibold tracking-widest text-[10px] sm:text-xs uppercase">
+      <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-3 font-mono text-[11px] text-brand-muted tracking-wider min-w-0">
+        <div className="flex items-center gap-2 truncate pr-2 min-w-0">
+          <span className="h-1.5 w-1.5 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.8)] shrink-0" />
+          <span className="text-brand-white font-semibold tracking-widest text-[10px] sm:text-xs uppercase truncate">
             PIXWALL ATELIER
           </span>
           <span className="text-white/30 hidden sm:inline">•</span>
           <span className="text-white/50 text-[10px] hidden sm:inline">ARCHITECTURAL MONOLITHS</span>
         </div>
-        <div className="flex items-center gap-3 text-[10px]">
-          <span className="border border-white/20 bg-white/[0.04] px-2.5 py-0.5 rounded text-white/80 font-mono">
-            EDITION: 18/50
+        <div className="flex items-center gap-2 text-[10px] shrink-0">
+          <span className="border border-white/20 bg-white/[0.04] px-2 py-0.5 rounded text-white/80 font-mono text-[9px] xs:text-[10px]">
+            ED: 18/50
           </span>
           <span className="font-bold text-brand-white text-xs tracking-tight">$620 USD</span>
         </div>
@@ -65,13 +65,13 @@ function PixwallVisual({ className }: ProjectSubVisualProps) {
       </div>
 
       {/* Bottom Commerce Action Bar */}
-      <div className="relative z-10 flex items-center justify-between border-t border-white/10 pt-2.5 font-mono text-[10px] text-brand-muted">
-        <div className="flex items-center gap-2">
-          <span className="text-white/40">CURATION:</span>
-          <span className="text-brand-white font-medium">MUSEUM-GRADE ARCHIVAL PIGMENT</span>
+      <div className="relative z-10 flex items-center justify-between border-t border-white/10 pt-2.5 font-mono text-[10px] text-brand-muted min-w-0">
+        <div className="flex items-center gap-2 truncate pr-2 min-w-0">
+          <span className="text-white/40 shrink-0">CURATION:</span>
+          <span className="text-brand-white font-medium truncate">ARCHIVAL PIGMENT</span>
         </div>
-        <div className="flex items-center gap-1.5 text-brand-white transition-colors duration-200 group-hover:text-[#35E85B]">
-          <span className="underline underline-offset-4 decoration-white/30 text-[10px] font-semibold">ACQUIRE EDITION</span>
+        <div className="flex items-center gap-1.5 text-brand-white transition-colors duration-200 group-hover:text-[#35E85B] shrink-0">
+          <span className="underline underline-offset-4 decoration-white/30 text-[10px] font-semibold">ACQUIRE</span>
           <span className="text-xs">↗</span>
         </div>
       </div>
@@ -114,13 +114,13 @@ function VoxAiVisual({ className }: ProjectSubVisualProps) {
       </div>
 
       {/* Bottom Telemetry Bar */}
-      <div className="relative z-10 flex items-center justify-between border-t border-brand-neon/20 pt-2.5 font-mono text-[10px] text-brand-muted">
-        <div className="flex items-center gap-2">
-          <span className="text-white/40">DSP:</span>
-          <span className="text-brand-white font-medium">SUB-MILLI PROTOTYPE INFERENCE</span>
+      <div className="relative z-10 flex items-center justify-between border-t border-brand-neon/20 pt-2.5 font-mono text-[10px] text-brand-muted min-w-0">
+        <div className="flex items-center gap-2 truncate pr-2 min-w-0">
+          <span className="text-white/40 shrink-0">DSP:</span>
+          <span className="text-brand-white font-medium truncate">SUB-MILLI PROTOTYPE</span>
         </div>
-        <div className="flex items-center gap-1.5 text-brand-neon transition-colors duration-200">
-          <span className="underline underline-offset-4 decoration-brand-neon/40 text-[10px] font-semibold">CHASSIS TELEMETRY</span>
+        <div className="flex items-center gap-1.5 text-brand-neon transition-colors duration-200 shrink-0">
+          <span className="underline underline-offset-4 decoration-brand-neon/40 text-[10px] font-semibold">CHASSIS</span>
           <span className="text-xs">↗</span>
         </div>
       </div>
@@ -140,17 +140,17 @@ function IlloraAiVisual({ className }: ProjectSubVisualProps) {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-[#4DA6FF]/[0.06] blur-3xl pointer-events-none" />
 
       {/* Top Enterprise Console Header */}
-      <div className="relative z-10 flex items-center justify-between border-b border-[#4DA6FF]/20 pb-3 font-mono text-[11px] text-brand-muted tracking-wider">
-        <div className="flex items-center gap-2.5">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#4DA6FF] shadow-[0_0_6px_rgba(77,166,255,0.8)]" />
-          <span className="text-[#4DA6FF] font-bold tracking-widest text-[10px] sm:text-xs">
+      <div className="relative z-10 flex items-center justify-between border-b border-[#4DA6FF]/20 pb-3 font-mono text-[11px] text-brand-muted tracking-wider min-w-0">
+        <div className="flex items-center gap-2 truncate pr-2 min-w-0">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#4DA6FF] shadow-[0_0_6px_rgba(77,166,255,0.8)] shrink-0" />
+          <span className="text-[#4DA6FF] font-bold tracking-widest text-[10px] sm:text-xs truncate">
             ILLORA // PIPELINE #8492
           </span>
           <span className="text-white/30 hidden sm:inline">•</span>
           <span className="text-white/60 text-[10px] hidden sm:inline">AUTONOMOUS DAG</span>
         </div>
-        <div className="flex items-center gap-3 text-[10px]">
-          <span className="border border-[#4DA6FF]/35 bg-[#4DA6FF]/10 px-2.5 py-0.5 rounded text-[#4DA6FF] font-bold font-mono">
+        <div className="flex items-center gap-2 text-[10px] shrink-0">
+          <span className="border border-[#4DA6FF]/35 bg-[#4DA6FF]/10 px-2 py-0.5 rounded text-[#4DA6FF] font-bold font-mono text-[9px] xs:text-[10px]">
             SYNC: NOMINAL
           </span>
           <span className="text-white/70 font-mono hidden xs:inline">100% HEALTH</span>
@@ -163,13 +163,13 @@ function IlloraAiVisual({ className }: ProjectSubVisualProps) {
       </div>
 
       {/* Bottom Telemetry Bar */}
-      <div className="relative z-10 flex items-center justify-between border-t border-[#4DA6FF]/20 pt-2.5 font-mono text-[10px] text-brand-muted">
-        <div className="flex items-center gap-2">
-          <span className="text-white/40">TELEMETRY:</span>
-          <span className="text-brand-white font-medium">REAL-TIME DAG CONCURRENCY</span>
+      <div className="relative z-10 flex items-center justify-between border-t border-[#4DA6FF]/20 pt-2.5 font-mono text-[10px] text-brand-muted min-w-0">
+        <div className="flex items-center gap-2 truncate pr-2 min-w-0">
+          <span className="text-white/40 shrink-0">DAG:</span>
+          <span className="text-brand-white font-medium truncate">REAL-TIME CONCURRENCY</span>
         </div>
-        <div className="flex items-center gap-1.5 text-[#4DA6FF] transition-colors duration-200">
-          <span className="underline underline-offset-4 decoration-[#4DA6FF]/40 text-[10px] font-semibold">PIPELINE ARCHITECTURE</span>
+        <div className="flex items-center gap-1.5 text-[#4DA6FF] transition-colors duration-200 shrink-0">
+          <span className="underline underline-offset-4 decoration-[#4DA6FF]/40 text-[10px] font-semibold">PIPELINE</span>
           <span className="text-xs">↗</span>
         </div>
       </div>
@@ -189,17 +189,17 @@ function ExperimentalVisual({ className }: ProjectSubVisualProps) {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-[#C084FC]/[0.06] blur-3xl pointer-events-none" />
 
       {/* Top Shader Lab Telemetry Bar */}
-      <div className="relative z-10 flex items-center justify-between border-b border-[#C084FC]/20 pb-3 font-mono text-[11px] text-brand-muted tracking-wider">
-        <div className="flex items-center gap-2.5">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#C084FC]" />
-          <span className="text-[#C084FC] font-bold tracking-widest text-[10px] sm:text-xs">
+      <div className="relative z-10 flex items-center justify-between border-b border-[#C084FC]/20 pb-3 font-mono text-[11px] text-brand-muted tracking-wider min-w-0">
+        <div className="flex items-center gap-2 truncate pr-2 min-w-0">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#C084FC] shrink-0" />
+          <span className="text-[#C084FC] font-bold tracking-widest text-[10px] sm:text-xs truncate">
             CGI.LAB // LIQUID CHROME
           </span>
           <span className="text-white/30 hidden sm:inline">•</span>
           <span className="text-white/50 text-[10px] hidden sm:inline">GLSL RAYMARCH</span>
         </div>
-        <div className="flex items-center gap-3 text-[10px]">
-          <span className="border border-[#C084FC]/30 bg-[#C084FC]/10 px-2.5 py-0.5 rounded text-[#C084FC] font-mono">
+        <div className="flex items-center gap-2 text-[10px] shrink-0">
+          <span className="border border-[#C084FC]/30 bg-[#C084FC]/10 px-2 py-0.5 rounded text-[#C084FC] font-mono text-[9px] xs:text-[10px]">
             60 FPS ACTIVE
           </span>
           <span className="text-white/60 font-mono hidden xs:inline">ACES TONE</span>
@@ -212,12 +212,12 @@ function ExperimentalVisual({ className }: ProjectSubVisualProps) {
       </div>
 
       {/* Bottom Telemetry Bar */}
-      <div className="relative z-10 flex items-center justify-between border-t border-[#C084FC]/20 pt-2.5 font-mono text-[10px] text-brand-muted">
-        <div className="flex items-center gap-2">
-          <span className="text-white/40">TECH:</span>
-          <span className="text-brand-white font-medium">PROCEDURAL PMREM SHADER PIPELINE</span>
+      <div className="relative z-10 flex items-center justify-between border-t border-[#C084FC]/20 pt-2.5 font-mono text-[10px] text-brand-muted min-w-0">
+        <div className="flex items-center gap-2 truncate pr-2 min-w-0">
+          <span className="text-white/40 shrink-0">TECH:</span>
+          <span className="text-brand-white font-medium truncate">PROCEDURAL PMREM SHADER</span>
         </div>
-        <div className="flex items-center gap-1.5 text-[#C084FC] transition-colors duration-200">
+        <div className="flex items-center gap-1.5 text-[#C084FC] transition-colors duration-200 shrink-0">
           <span className="underline underline-offset-4 decoration-[#C084FC]/40 text-[10px] font-semibold">VIEW EXPERIMENT</span>
           <span className="text-xs">↗</span>
         </div>

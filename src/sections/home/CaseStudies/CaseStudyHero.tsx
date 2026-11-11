@@ -75,7 +75,7 @@ export function CaseStudyHero({ caseStudy }: CaseStudyHeroProps) {
             <span className="text-white/60">{caseStudy.year}</span>
           </div>
 
-          <h1 className="font-display text-4xl xs:text-5xl sm:text-6xl tablet:text-7xl laptop:text-8xl desktop:text-[5.75rem] font-extrabold tracking-tighter text-brand-white leading-[0.92]">
+          <h1 className="font-display text-[clamp(1.75rem,6.8vw,5.75rem)] font-extrabold tracking-tighter text-brand-white leading-[0.92] break-words pr-2">
             {caseStudy.title}
           </h1>
 

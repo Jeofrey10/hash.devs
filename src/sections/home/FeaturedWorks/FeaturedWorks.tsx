@@ -66,20 +66,20 @@ export function FeaturedWorks() {
 
             <h2
               ref={headlineRef}
-              className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.92] text-[2.2rem] xs:text-[2.6rem] sm:text-5xl tablet:text-[4rem] laptop:text-[4.75rem] desktop:text-[5.5rem] wide:text-[6.25rem]"
+              className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.92] text-[clamp(2.2rem,7vw,6.25rem)] break-words pr-2"
             >
               <div className="overflow-hidden mb-1 sm:mb-2">
-                <span className="inline-block whitespace-nowrap works-headline-line">
+                <span className="inline-block works-headline-line">
                   WE MAKE
                 </span>
               </div>
               <div className="overflow-hidden mb-1 sm:mb-2">
-                <span className="inline-block whitespace-nowrap works-headline-line text-brand-neon">
+                <span className="inline-block works-headline-line text-brand-neon">
                   DIGITAL
                 </span>
               </div>
               <div className="overflow-hidden">
-                <span className="inline-block whitespace-nowrap works-headline-line text-brand-white">
+                <span className="inline-block works-headline-line text-brand-white">
                   MATTER.
                 </span>
               </div>

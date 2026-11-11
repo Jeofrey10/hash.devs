@@ -32,7 +32,7 @@ export function AboutCollaborationCTA() {
           </div>
 
           {/* Monumental Headline */}
-          <h2 className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.94] text-3xl xs:text-4xl sm:text-5xl tablet:text-6xl laptop:text-7xl desktop:text-[5rem] uppercase">
+          <h2 className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.94] text-[clamp(1.65rem,6.5vw,5rem)] uppercase text-center break-words pr-2">
             <div>{cta.headline.line1}</div>
             <div className="text-brand-neon mt-1">{cta.headline.line2}</div>
           </h2>

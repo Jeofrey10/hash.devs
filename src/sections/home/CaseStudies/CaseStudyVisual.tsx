@@ -100,7 +100,7 @@ export function CaseStudyVisual({ caseStudy }: CaseStudyVisualProps) {
           <div className="font-mono text-xs font-semibold text-brand-neon tracking-widest uppercase mb-4">
             STUDIO POSITION
           </div>
-          <h2 className="font-display text-3xl sm:text-5xl laptop:text-6xl desktop:text-7xl font-extrabold tracking-tighter text-brand-white uppercase leading-[0.95] max-w-5xl mx-auto">
+          <h2 className="font-display text-[clamp(1.5rem,5.5vw,4.5rem)] font-extrabold tracking-tighter text-brand-white uppercase leading-[0.98] max-w-5xl mx-auto break-words pr-2">
             {closingStatement}
           </h2>
         </div>

@@ -9,7 +9,6 @@ const About = lazy(() => import('@/pages/About'));
 const Services = lazy(() => import('@/pages/Services'));
 const Work = lazy(() => import('@/pages/Work'));
 const Contact = lazy(() => import('@/pages/Contact'));
-const DesignSystemLab = lazy(() => import('@/pages/DesignSystemLab'));
 const CaseStudyPage = lazy(() =>
   import('@/sections/home/CaseStudies').then((mod) => ({ default: mod.CaseStudyPage }))
 );
@@ -39,7 +38,6 @@ export default function App() {
               <Route path="/work" element={<Work />} />
               <Route path="/work/:id" element={<CaseStudyPage />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/lab" element={<DesignSystemLab />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

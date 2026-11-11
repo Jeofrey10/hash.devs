@@ -7,6 +7,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0] — Global Mobile Typography Repair & Interface Cleanup (2026-11-12)
+
+### Removed & Streamlined
+- **Complete Removal of Design Lab:**
+  - Removed `/lab` route and lazy component import from `src/App.tsx`.
+  - Deleted `src/pages/DesignSystemLab.tsx`.
+  - Removed `/lab` disallow rule from `public/robots.txt`.
+  - Removed Design Lab navigation entries from `MobileNavigation.tsx` and `NavDrawer.tsx`.
+- **Complete Removal of Sound Option:**
+  - Removed `AudioController.tsx` component and export.
+  - Removed sound toggle button and audio status indicator from `DesktopNavigation.tsx` and `MobileNavigation.tsx`.
+  - Rebalanced desktop and mobile navigation spacing without empty circles or awkward placeholders.
+
+### Fixed & Responsive Polish
+- **EyebrowLabel Double Bracket Deduplication (`src/components/ui/EyebrowLabel.tsx`):**
+  - Added smart detection for child content that already contains a bracketed index (`[ 05 ] // ...`), suppressing redundant `[index]` prefixes and fixing duplicate labels across all pages.
+- **Services Discipline Matrix Accordion Polish (`src/sections/services/ServiceRow.tsx`):**
+  - Resolved title overlap with expand button `(+)` using fluid typography (`clamp(1.25rem, 4.5vw, 2.25rem)`), `min-w-0 pr-2`, and `break-words`.
+  - Prevented badge blowout on capabilities pills with `break-words` and `max-w-full`.
+- **Monumental Particle Typography Wrapping (`src/components/ui/cursor-driven-particle-typography.tsx`):**
+  - Removed rigid `whitespace-nowrap` on `.manifesto-line` spans and added fluid clamp formula with horizontal padding to prevent clipping on mobile screens.
+- **Global Editorial Headlines Fluid Typography Pass:**
+  - Standardized fluid clamp sizing, natural word breaks, and protective right padding (`pr-2`) across About, Services, Work, Case Studies, and Contact headlines.
+  - Adjusted HUD and telemetry bars in project cards to prevent overflow.
+
+### Verified Quality Gates
+- **8-Viewport Matrix Verification:** 100% pass across Small Mobile (320×568) through Ultrawide (1920×1080) with `0px` horizontal overflow.
+- **Zero Lab & Audio Footprint:** Automated CDP audit confirmed 0 occurrences of sound controls or lab links across all routes.
+- **Clean Build:** `npx tsc --noEmit` 0 errors; `npm run build` compiled clean in 3.90s.
+
+---
+
 ## [1.0.1] — Mobile Responsive Repair & Hero Restoration (2026-11-12)
 
 ### Fixed & Restored

@@ -44,7 +44,7 @@ export function ServicesDisciplineMatrix() {
                 [ 03 ] // DISCIPLINE MATRIX
               </EyebrowLabel>
             </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-4xl laptop:text-5xl tracking-tight text-brand-white">
+            <h2 className="font-display font-extrabold text-[clamp(1.65rem,5.5vw,3.25rem)] tracking-tight text-brand-white break-words pr-2">
               CORE DISCIPLINES & REPERTOIRE
             </h2>
           </div>

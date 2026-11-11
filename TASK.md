@@ -1131,3 +1131,30 @@
     - Ultrawide: `1920 × 1080` (`1914px vs 1914px`) — Hero=true, Canvas=true, Overflow=false
   - [x] Verified zero page horizontal overflow across all internal studio routes (`/work/pixwall`, `/about`, `/services`, `/work`, `/contact`).
   - [x] `npx tsc --noEmit` passed with 0 errors; `npm run build` compiled clean with 0 errors.
+
+---
+
+## Phase 11: Global Mobile Typography Repair & Website Cleanup (COMPLETE)
+
+- [x] **Reference Screenshot Audit & Defect Cataloging**
+  - [x] Extracted and audited all 21 reference screenshots from `WhatsApp Unknown 2026-11-12 at 2.48.23 AM.zip`.
+  - [x] Resolved double bracket index defects (`• [05] [ 05 ] // ...`) in `EyebrowLabel.tsx` by adding bracket collision detection.
+  - [x] Resolved discipline title collision with expand button `(+)` in `ServiceRow.tsx`.
+  - [x] Resolved manifesto particle typography line truncation in `cursor-driven-particle-typography.tsx`.
+  - [x] Resolved case study, archive, and CTA headline clipping across About, Services, Work, Case Studies, and Contact.
+- [x] **Complete Removal of Design Lab**
+  - [x] Removed `/lab` route and lazy import from `src/App.tsx`.
+  - [x] Deleted `src/pages/DesignSystemLab.tsx`.
+  - [x] Removed `/lab` disallow entry from `public/robots.txt`.
+  - [x] Purged Design Lab entries from `MobileNavigation.tsx` and `NavDrawer.tsx`.
+  - [x] Rebalanced navigation counts and layout spacing.
+- [x] **Complete Removal of Sound Option**
+  - [x] Removed `AudioController.tsx` and export from `src/components/navigation/index.ts`.
+  - [x] Removed sound toggle button and audio status indicator from `DesktopNavigation.tsx` and `MobileNavigation.tsx`.
+  - [x] Rebalanced header control spacing without placeholders or awkward gaps.
+- [x] **Comprehensive Viewport Audit & Production Build Verification**
+  - [x] Verified zero horizontal overflow and clean layout across all 8 target viewports (`320×568`, `375×812`, `390×844`, `430×932`, `768×1024`, `1280×800`, `1440×900`, `1920×1080`).
+  - [x] Verified zero horizontal overflow on all 6 core studio routes (`/`, `/about`, `/services`, `/work`, `/work/pixwall`, `/contact`).
+  - [x] `npx tsc --noEmit` passed with 0 errors.
+  - [x] `npm run build` compiled clean in 3.90s with 0 warnings.
+  - [x] Authored complete report in `GLOBAL_MOBILE_REPAIR_REPORT.md`.

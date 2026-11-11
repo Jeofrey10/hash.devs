@@ -117,15 +117,15 @@ export function StudioShowcase() {
 
             <h2
               ref={headlineRef}
-              className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.92] text-[1.6rem] xs:text-[1.75rem] sm:text-4xl tablet:text-[3.5rem] laptop:text-[4.25rem] desktop:text-[4.5rem] wide:text-[5.5rem]"
+              className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.92] text-[clamp(1.75rem,6.8vw,5.5rem)] break-words pr-2"
             >
               <div className="overflow-hidden mb-1 sm:mb-2">
-                <span className="inline-block whitespace-nowrap pr-2 showcase-headline-line">
+                <span className="inline-block pr-2 showcase-headline-line">
                   DESIGNING
                 </span>
               </div>
               <div className="overflow-hidden">
-                <span className="inline-block whitespace-nowrap pr-2 showcase-headline-line text-brand-white">
+                <span className="inline-block pr-2 showcase-headline-line text-brand-white">
                   WHAT'S <span className="text-brand-neon">NEXT.</span>
                 </span>
               </div>

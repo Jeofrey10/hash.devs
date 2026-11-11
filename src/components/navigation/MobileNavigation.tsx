@@ -4,7 +4,6 @@ import { gsap } from '@/lib/animations';
 import { getLenis } from '@/lib/animations';
 import { useCursor } from '@/components/ui/CursorContext';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
-import { AudioController } from './AudioController';
 import { cn } from '@/lib/utils';
 
 export interface MobileNavigationProps {
@@ -19,7 +18,6 @@ const MOBILE_LINKS = [
   { index: '03', label: 'Services', to: '/services' },
   { index: '04', label: 'Work', to: '/work' },
   { index: '05', label: 'Contact', to: '/contact' },
-  { index: '06', label: 'Design Lab', to: '/lab' },
 ];
 
 export function MobileNavigation({ isOpen, onClose, onToggle }: MobileNavigationProps) {
@@ -108,9 +106,7 @@ export function MobileNavigation({ isOpen, onClose, onToggle }: MobileNavigation
   return (
     <>
       {/* Mobile Toggle Button (Visible on mobile/tablet) */}
-      <div className="flex items-center gap-2 laptop:hidden">
-        <AudioController />
-
+      <div className="flex items-center laptop:hidden">
         <button
           type="button"
           onClick={onToggle}

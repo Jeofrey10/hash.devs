@@ -31,7 +31,7 @@ export function StudioPhilosophy() {
           </div>
 
           {/* Monumental Editorial Headline */}
-          <h2 className="font-display font-extrabold tracking-tight text-brand-white leading-[1.04] text-2xl xs:text-3xl sm:text-4xl tablet:text-5xl laptop:text-[3.75rem] desktop:text-[4.25rem]">
+          <h2 className="font-display font-extrabold tracking-tight text-brand-white leading-[1.04] text-[clamp(1.4rem,4.5vw,4.25rem)] break-words pr-2">
             "{philosophy.statement}"
           </h2>
 

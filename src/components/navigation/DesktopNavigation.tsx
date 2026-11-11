@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useCursor } from '@/components/ui/CursorContext';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
-import { AudioController } from './AudioController';
 import { cn } from '@/lib/utils';
 
 export interface NavLinkItem {
@@ -66,10 +65,8 @@ export function DesktopNavigation({ onOpenMobileMenu, isMobileMenuOpen }: Deskto
         </ul>
       </nav>
 
-      {/* Right Controls: Audio Controller + Let's Talk CTA + Menu Toggle */}
-      <div className="flex items-center gap-4 ml-auto">
-        <AudioController />
-
+      {/* Right Controls: Let's Talk CTA + Menu Toggle */}
+      <div className="flex items-center gap-3.5 ml-auto">
         <PrimaryButton
           size="sm"
           href="/contact"

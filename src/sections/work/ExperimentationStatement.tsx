@@ -34,7 +34,7 @@ export function ExperimentationStatement() {
           </div>
 
           {/* Monumental Headline */}
-          <h2 className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.94] text-4xl xs:text-5xl sm:text-6xl tablet:text-7xl laptop:text-[5.5rem] uppercase mb-10">
+          <h2 className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.94] text-[clamp(1.75rem,6.5vw,5.5rem)] uppercase mb-10 break-words pr-2">
             <div>{experimentation.headline.line1}</div>
             <div>
               <span>{experimentation.headline.line2} </span>
