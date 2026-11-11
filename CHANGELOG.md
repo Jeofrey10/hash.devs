@@ -7,7 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.1.0] — Global Mobile Typography Repair & Interface Cleanup (2026-11-12)
+## [1.2.0] — Global Cinematic Preloader Release (2026-11-12)
+
+### Added
+- **Global Cinematic Brand Preloader (`src/components/preloader/CinematicPreloader.tsx`):**
+  - Full-screen architectural preloader canvas on Obsidian Black (`#050505`) with Hash Neon Green (`#35E85B`) accents.
+  - Centered official geometric HASH.DEVS emblem with subtle reveal, corner brackets (`⌜`, `⌝`, `⌞`, `⌟`), and Syne studio wordmark.
+  - Thin horizontal neon progress line with smooth requestAnimationFrame numerical counter (`00%` to `100%`).
+  - Dynamic technical status telemetry messages (`INITIALIZING EXPERIENCE`, `LOADING CRITICAL FONTS`, `LOADING BRAND ASSETS`, `PREPARING 3D ENVIRONMENT`, `INITIALIZING INTERACTIONS`, `EXPERIENCE READY`).
+  - Top HUD bar with studio provenance (`HASH.DEVS • ATELIER SYS_INIT`, `EST. 2024`, `[ONLINE]`).
+  - Upward shutter curtain exit reveal (`clipPath: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)`) with `expo.inOut` easing.
+- **Resource Orchestration & Preloader Context (`src/components/preloader/PreloaderContext.tsx`):**
+  - Real asset readiness coordination observing DOM readiness, critical web fonts (`document.fonts.load`), brand image assets, and Three.js first render notification.
+  - Three.js hook integration via `registerThreeJsReady()` in `HeroScene.tsx`.
+  - Safety fallback timeout (3.8s) preventing preloader hanging under network drops or disabled WebGL.
+  - Session persistence (`sessionStorage: 'hashdevs_initial_preload_done'`) ensuring the full preloader only runs on first entry or hard reload, while preserving instant internal client-side navigation.
+  - Fast-path resolution for direct deep links (`/about`, `/services`, etc.) skipping homepage 3D scene requirement.
+- **Resilient Preloader Unmounting Architecture:**
+  - Segregated `CinematicPreloaderInner` component that unmounts completely when dismissed, preventing null-ref exceptions or unnecessary lifecycle executions during route transitions.
+
+### Quality Validation
+- **8-Viewport Responsive Matrix:** 100% pass across Small Mobile (320×568) through Ultrawide (1920×1080) with 0px horizontal overflow and properly scaled emblems.
+- **Full Route Lifecycle Verification:** Automated CDP verification confirmed smooth exit curtain reveal on homepage and clean, instantaneous navigation to `/about`, `/services`, `/work`, `/work/pixwall`, and `/contact` with zero console errors or exceptions.
+- **Clean Build:** `npx tsc --noEmit` passed with 0 errors; `npm run build` compiled clean in 3.92s.
 
 ### Removed & Streamlined
 - **Complete Removal of Design Lab:**

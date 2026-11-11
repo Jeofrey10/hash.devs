@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { prefersReducedMotion } from '@/lib/animations';
+import { usePreloader } from '@/components/preloader';
 import { EMBLEM_SEGMENTS } from './emblemData';
 
 export interface HeroSceneProps {
@@ -248,6 +249,7 @@ export function HeroScene({ scrollProgress = 0, className, isMobileInline = fals
   const mountRef = useRef<HTMLDivElement>(null);
   const [hasWebGL, setHasWebGL] = useState(true);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const { registerThreeJsReady } = usePreloader();
 
   // References for render loop and scroll interpolation
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -588,8 +590,13 @@ export function HeroScene({ scrollProgress = 0, className, isMobileInline = fals
       }
 
       renderer.render(scene, camera);
+      if (!isThreeReadyNotified) {
+        isThreeReadyNotified = true;
+        registerThreeJsReady();
+      }
     };
 
+    let isThreeReadyNotified = false;
     animate();
 
     // --- 10. Clean Disposal on Unmount ---

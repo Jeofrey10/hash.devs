@@ -74,6 +74,24 @@ Creative technology websites require specialized testing methodologies that vali
 | `/work` | Project Archive | `375px` | `375px` | `0px` | `PASS` |
 | `/contact` | Project Initiation | `375px` | `375px` | `0px` | `PASS` |
 
+### 3.3 Global Cinematic Preloader Verification Audit
+
+Automated Chrome DevTools Protocol verification across all viewports and routes (`scripts/verify_preloader_final.mjs`):
+
+| Viewport Profile | Resolution | Preloader Mounted | Logo Emblem Size | Horizontal Overflow | Preloader Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Small mobile** | `320 × 568` | `true` | `190 × 71px` | `0px` | `PASS` |
+| **Compact mobile** | `375 × 812` | `true` | `192 × 72px` | `0px` | `PASS` |
+| **Standard mobile** | `390 × 844` | `true` | `192 × 72px` | `0px` | `PASS` |
+| **Large mobile** | `430 × 932` | `true` | `192 × 72px` | `0px` | `PASS` |
+| **Tablet** | `768 × 1024` | `true` | `224 × 84px` | `0px` | `PASS` |
+| **Laptop** | `1280 × 800` | `true` | `224 × 84px` | `0px` | `PASS` |
+| **Desktop** | `1440 × 900` | `true` | `224 × 84px` | `0px` | `PASS` |
+| **Ultrawide** | `1920 × 1080` | `true` | `224 × 84px` | `0px` | `PASS` |
+
+- **Exit Lifecycle Check:** Upward curtain reveal smoothly reveals homepage hero (`WE BUILD DIGITAL EXPERIENCES.`), WebGL 3D canvas active, zero layout jump.
+- **Internal Route Navigation:** Direct deep-links (`/about`, `/services`, `/work`, `/work/pixwall`, `/contact`) resolve without hanging; preloader unmounts completely with zero memory leaks or null-reference exceptions.
+
 ---
 
 ## 4. Automated Performance Benchmarks

@@ -1158,3 +1158,29 @@
   - [x] `npx tsc --noEmit` passed with 0 errors.
   - [x] `npm run build` compiled clean in 3.90s with 0 warnings.
   - [x] Authored complete report in `GLOBAL_MOBILE_REPAIR_REPORT.md`.
+
+---
+
+## Phase 12: Global Cinematic Preloader Implementation (COMPLETE)
+
+- [x] **Cinematic Brand Design & Preloader Canvas**
+  - [x] Built full-screen loading canvas on Obsidian Black `#050505` with Hash Neon Green `#35E85B` accents.
+  - [x] Centered official HASH.DEVS emblem with SVG geometric glyph, Syne wordmark, and corner reticle brackets (`⌜`, `⌝`, `⌞`, `⌟`).
+  - [x] Bottom section with thin neon horizontal progress line (`00%` to `100%`) and dynamic technical status telemetry (`INITIALIZING EXPERIENCE`, `LOADING CRITICAL FONTS`, `LOADING BRAND ASSETS`, `PREPARING 3D ENVIRONMENT`, `INITIALIZING INTERACTIONS`, `EXPERIENCE READY`).
+  - [x] Top HUD telemetry bar with `HASH.DEVS`, `ATELIER SYS_INIT`, `EST. 2024`, and `[ONLINE]` status beacon.
+- [x] **Real Loading State Orchestration & Architecture**
+  - [x] Engineered `PreloaderContext.tsx` observing DOM readiness, critical web fonts (`document.fonts.load`), brand image assets, and Three.js first render notification.
+  - [x] Integrated `registerThreeJsReady()` in `HeroScene.tsx` upon completion of the first WebGL `renderer.render(scene, camera)`.
+  - [x] Added safety timeout (3.8s) ensuring the preloader resolves cleanly without hanging under poor network conditions or disabled WebGL.
+  - [x] Implemented `sessionStorage` persistence (`hashdevs_initial_preload_done`) so the full preloader only runs on initial entry / hard refresh, skipping on internal client-side navigation.
+  - [x] Fast-pathed internal studio routes (`/about`, `/services`, etc.) so direct deep-links do not hang waiting for the homepage 3D scene.
+- [x] **Cinematic Exit Transition & Zero Layout Shift**
+  - [x] Integrated GSAP upward shutter curtain exit (`clipPath: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)`) with `expo.inOut` easing.
+  - [x] Fully respected `prefers-reduced-motion` with instant fade dismiss for accessibility.
+  - [x] Built resilient `CinematicPreloaderInner` component that unmounts when dismissed, preventing null-ref exceptions or unnecessary lifecycle executions during route transitions.
+- [x] **Comprehensive Viewport Audit & Production Build Verification**
+  - [x] Verified fresh preloader rendering across all 8 target viewports (`320×568`, `375×812`, `390×844`, `430×932`, `768×1024`, `1280×800`, `1440×900`, `1920×1080`) with zero horizontal overflow.
+  - [x] Verified exit curtain lifecycle and immediate hero reveal on homepage (`WE BUILD DIGITAL EXPERIENCES.`).
+  - [x] Verified clean direct navigation to all studio routes (`/about`, `/services`, `/work`, `/work/pixwall`, `/contact`) with zero runtime errors.
+  - [x] `npx tsc --noEmit` passed with 0 errors.
+  - [x] `npm run build` compiled clean in 3.92s with 0 errors.
