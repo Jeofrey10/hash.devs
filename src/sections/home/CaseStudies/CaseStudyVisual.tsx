@@ -46,7 +46,7 @@ export function CaseStudyVisual({ caseStudy }: CaseStudyVisualProps) {
             <div className="font-mono text-xs font-bold tracking-widest text-brand-neon uppercase mb-3">
               [03] ARCHITECTURAL SPECIFICATIONS & RUNTIMES
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl laptop:text-5xl font-extrabold text-brand-white tracking-tight uppercase leading-tight">
+            <h2 className="font-display text-2xl xs:text-3xl sm:text-4xl laptop:text-5xl font-extrabold text-brand-white tracking-tight uppercase leading-tight min-w-0 w-full break-words">
               {technicalArchitecture.title}
             </h2>
             <p className="mt-4 font-body text-base sm:text-lg font-light text-brand-muted leading-relaxed">

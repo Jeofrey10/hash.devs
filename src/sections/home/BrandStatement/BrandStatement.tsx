@@ -78,30 +78,30 @@ export function BrandStatement() {
         </div>
 
         {/* Monumental Editorial Headline */}
-        <div className="max-w-6xl">
+        <div className="max-w-6xl min-w-0 w-full">
           <h2
             ref={headlineRef}
-            className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.92] text-4xl sm:text-6xl tablet:text-7xl laptop:text-[5.25rem] wide:text-[6.5rem]"
+            className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.92] text-[clamp(1.75rem,6.8vw,6.5rem)] min-w-0 w-full break-words"
           >
             <div className="overflow-hidden mb-1 sm:mb-2">
-              <span className="inline-block whitespace-nowrap brand-headline-line">
+              <span className="inline-block brand-headline-line pr-2">
                 WE DON'T JUST
               </span>
             </div>
             <div className="overflow-hidden mb-1 sm:mb-2">
-              <span className="inline-block whitespace-nowrap brand-headline-line">
+              <span className="inline-block brand-headline-line pr-2">
                 BUILD WEBSITES.
               </span>
             </div>
             <div className="overflow-hidden mb-1 sm:mb-2">
-              <span className="inline-block whitespace-nowrap brand-headline-line">
+              <span className="inline-block brand-headline-line pr-2">
                 WE <span className="text-brand-neon">ENGINEER</span>
               </span>
             </div>
             <div className="overflow-hidden">
               <span
                 ref={greenHighlightRef}
-                className="inline-block whitespace-nowrap brand-headline-line text-brand-neon"
+                className="inline-block brand-headline-line text-brand-neon pr-2"
               >
                 DIGITAL IMPACT.
               </span>

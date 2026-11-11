@@ -143,7 +143,7 @@ export function MobileNavigation({ isOpen, onClose, onToggle }: MobileNavigation
         role="dialog"
         aria-modal="true"
         aria-label="Mobile Site Navigation"
-        className="fixed inset-0 z-dropdown invisible overflow-hidden laptop:hidden"
+        className="fixed inset-0 z-dropdown invisible overflow-hidden laptop:hidden max-w-full"
       >
         <div
           ref={curtainRef}

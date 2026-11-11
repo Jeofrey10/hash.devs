@@ -7,6 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.1] — Mobile Responsive Repair & Hero Restoration (2026-11-12)
+
+### Fixed & Restored
+- **Mobile Hero Section & 3D Stage Restoration (`src/sections/home/HeroScene.tsx`, `HeroContent.tsx`, `HeroSection.tsx`):**
+  - Resolved mobile hero occlusion: separated desktop full-screen canvas (`hidden laptop:block`) from mobile inline stage (`mobileScene={<HeroScene isMobileInline />}`).
+  - Built dedicated framed mobile 3D stage (`w-full h-[260px] xs:h-[300px] sm:h-[340px]`) with architectural corner reticles (`⌜`, `⌝`, `⌞`, `⌟`).
+  - Centered mobile 3D emblem at `(0, 0, 0)` with scale `0.72` and camera `(0, 0, 7.5)`, avoiding text collisions.
+  - Added touch-based interactive rotation via `touchmove` event handling.
+  - Capped mobile device pixel ratio at `1.5` for smooth 60fps mobile GPU rendering.
+  - Restored supporting studio description paragraph: *"We engineer high-performance digital products, intelligent systems, and immersive web experiences for ambitious brands and enterprise innovators."*
+  - Re-calibrated container padding (`pt-24 xs:pt-28 sm:pt-32 laptop:pt-28`) ensuring all hero content remains clearly visible beneath the 80px fixed header.
+  - Guarded scroll exit transition in `HeroScrollTransition.ts` to prevent premature fading on mobile scrolls.
+- **Global Typography & Horizontal Overflow Elimination:**
+  - Removed rigid `whitespace-nowrap` on `EXPERIENCES.` in `HeroContent.tsx` and applied fluid typography `clamp(1.85rem, 6.8vw, 3.85rem)` with protective padding.
+  - Corrected `BrandStatement.tsx`: replaced fixed `text-4xl sm:text-6xl` and `whitespace-nowrap` with fluid `clamp(1.75rem, 6.8vw, 6.5rem)` and `break-words`.
+  - Corrected `StudioProcess.tsx`: applied fluid `clamp(1.85rem, 5.5vw, 6.25rem)` with `break-words` and `pr-2`.
+  - Resolved 488px horizontal overflow on `/work/pixwall` (`CaseStudyVisual.tsx`) by adding `break-words` and fluid sizing on long words like `INFRASTRUCTURE`.
+  - Resolved horizontal blowout on case study navigation cards (`CaseStudyNavigation.tsx`) with `min-w-0` and `break-words` on `EXPERIMENTAL`.
+  - Added fluid typography and right padding across `AboutHero.tsx`, `ServicesHero.tsx`, `WorkHero.tsx`, and `CollaborationBanner.tsx`.
+  - Protected navigation components (`Navigation.tsx`, `MobileNavigation.tsx`, `NavDrawer.tsx`) with `min-w-0` and `max-w-full`.
+
+### Verified Quality Gates
+- **8-Viewport Mobile Audit Matrix:** 100% pass across all 8 target viewports (`320×568`, `375×812`, `390×844`, `430×932`, `768×1024`, `1280×800`, `1440×900`, `1920×1080`) with `0px` horizontal page overflow and active hero visibility.
+- **Route Integrity:** Verified `0px` page overflow across all internal studio routes (`/work/pixwall`, `/about`, `/services`, `/work`, `/contact`).
+- **Clean Build:** `npx tsc --noEmit` passed with 0 errors; `npm run build` compiled clean in 4.18s.
+
+---
+
 ## [1.0.0] — Official Production Launch Release (Phase 09: Global Optimization & Launch Readiness) (2026-11-12)
 
 ### Added & Engineered

@@ -24,12 +24,12 @@ export function CollaborationBanner() {
       <MainContainer>
         <div className="flex flex-col laptop:flex-row laptop:items-end justify-between gap-10 laptop:gap-16">
           {/* Main Headline: "Let's work together." */}
-          <div className="max-w-4xl wide:max-w-5xl">
-            <h2 className="font-display leading-[0.92] tracking-tighter text-brand-obsidian text-[2.5rem] xs:text-[3.25rem] sm:text-6xl tablet:text-7xl laptop:text-8xl desktop:text-[6.25rem] wide:text-[7.25rem]">
-              <span className="font-light block xs:inline mr-2 sm:mr-4">
+          <div className="max-w-4xl wide:max-w-5xl min-w-0 w-full">
+            <h2 className="font-display leading-[0.92] tracking-tighter text-brand-obsidian text-[clamp(1.85rem,6.5vw,6.25rem)] min-w-0 w-full break-words">
+              <span className="font-light block sm:inline mr-2 sm:mr-4">
                 {banner.leadText}
               </span>
-              <span className="font-extrabold block xs:inline">
+              <span className="font-extrabold block sm:inline">
                 {banner.accentText}
               </span>
             </h2>

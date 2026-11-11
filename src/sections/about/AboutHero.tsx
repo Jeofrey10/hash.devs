@@ -46,23 +46,23 @@ export function AboutHero() {
               </EyebrowLabel>
             </div>
 
-            <h1 className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.92] text-[clamp(2.2rem,4.2vw,4.75rem)] min-w-0 w-full break-words">
+            <h1 className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.92] text-[clamp(1.6rem,4.2vw,4.75rem)] min-w-0 w-full break-words">
               <div className="overflow-hidden mb-1">
-                <span className="inline-block">{hero.headline.line1}</span>
+                <span className="inline-block pr-2">{hero.headline.line1}</span>
               </div>
               <div className="overflow-hidden mb-1">
-                <span className="inline-block">{hero.headline.line2}</span>
+                <span className="inline-block pr-2">{hero.headline.line2}</span>
               </div>
               <div className="overflow-hidden mb-1">
-                <span className="inline-block">{hero.headline.line3}</span>
+                <span className="inline-block pr-2">{hero.headline.line3}</span>
               </div>
               <div className="overflow-hidden mb-1">
-                <span className="inline-block text-brand-neon">
+                <span className="inline-block text-brand-neon pr-2">
                   {hero.headline.line4}
                 </span>
               </div>
               <div className="overflow-hidden">
-                <span className="inline-block text-brand-neon">
+                <span className="inline-block text-brand-neon pr-2">
                   {hero.headline.line5}
                 </span>
               </div>

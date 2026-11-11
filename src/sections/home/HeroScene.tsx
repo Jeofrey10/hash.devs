@@ -6,6 +6,7 @@ import { EMBLEM_SEGMENTS } from './emblemData';
 export interface HeroSceneProps {
   scrollProgress?: number;
   className?: string;
+  isMobileInline?: boolean;
 }
 
 /**
@@ -243,7 +244,7 @@ function createStudioEnvironmentTexture(renderer: THREE.WebGLRenderer): {
   };
 }
 
-export function HeroScene({ scrollProgress = 0, className }: HeroSceneProps) {
+export function HeroScene({ scrollProgress = 0, className, isMobileInline = false }: HeroSceneProps) {
   const mountRef = useRef<HTMLDivElement>(null);
   const [hasWebGL, setHasWebGL] = useState(true);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -280,13 +281,18 @@ export function HeroScene({ scrollProgress = 0, className }: HeroSceneProps) {
     const scene = new THREE.Scene();
     sceneRef.current = scene;
 
-    const width = container.clientWidth || window.innerWidth;
-    const height = container.clientHeight || window.innerHeight;
-    const isMobile = width < 768;
-    const isTablet = width >= 768 && width < 1024;
+    const width = container.clientWidth || (isMobileInline ? 360 : window.innerWidth);
+    const height = container.clientHeight || (isMobileInline ? 300 : window.innerHeight);
+    const isMobile = isMobileInline || width < 768;
+    const isTablet = !isMobileInline && width >= 768 && width < 1024;
 
-    const camera = new THREE.PerspectiveCamera(isMobile ? 48 : 40, width / height, 0.1, 100);
-    camera.position.set(0, 0, isMobile ? 8.6 : 7.8);
+    const camera = new THREE.PerspectiveCamera(
+      isMobileInline ? 42 : (isMobile ? 48 : 40),
+      width / height,
+      0.1,
+      100
+    );
+    camera.position.set(0, 0, isMobileInline ? 7.5 : (isMobile ? 8.6 : 7.8));
 
     // --- 2. Renderer with High Dynamic Range & Physical Tone Mapping ---
     const renderer = new THREE.WebGLRenderer({
@@ -403,10 +409,13 @@ export function HeroScene({ scrollProgress = 0, className }: HeroSceneProps) {
     scene.add(emblemGroup);
 
     // Proportional positioning across viewports:
+    // Mobile Inline: perfectly centered inside dedicated responsive stage
     // Desktop: positioned cleanly to the right of hero text with zero overlap
     // Tablet: positioned centered slightly lower
-    // Mobile: positioned in depth layer behind CTAs
-    if (isMobile) {
+    if (isMobileInline) {
+      emblemGroup.position.set(0.0, 0.0, 0.0);
+      emblemGroup.scale.set(0.72, 0.72, 0.72);
+    } else if (isMobile) {
       emblemGroup.position.set(0.0, -0.95, -1.8);
       emblemGroup.scale.set(0.55, 0.55, 0.55);
     } else if (isTablet) {
@@ -417,7 +426,7 @@ export function HeroScene({ scrollProgress = 0, className }: HeroSceneProps) {
       emblemGroup.scale.set(0.86, 0.86, 0.86);
     }
 
-    // --- 7. Pointer Movement Listener ---
+    // --- 7. Pointer & Touch Movement Listeners ---
     const handlePointerMove = (e: MouseEvent) => {
       const normX = (e.clientX / window.innerWidth) * 2 - 1;
       const normY = -(e.clientY / window.innerHeight) * 2 + 1;
@@ -427,24 +436,41 @@ export function HeroScene({ scrollProgress = 0, className }: HeroSceneProps) {
 
     window.addEventListener('mousemove', handlePointerMove, { passive: true });
 
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!e.touches.length || !container) return;
+      const touch = e.touches[0];
+      const rect = container.getBoundingClientRect();
+      const normX = ((touch.clientX - rect.left) / (rect.width || 1)) * 2 - 1;
+      const normY = -(((touch.clientY - rect.top) / (rect.height || 1)) * 2 - 1);
+      mouseRef.current.targetX = normX;
+      mouseRef.current.targetY = normY;
+    };
+
+    container.addEventListener('touchmove', handleTouchMove, { passive: true });
+
     // --- 8. Window Resize Handler ---
     const handleResize = () => {
       if (!container || !rendererRef.current) return;
-      const newWidth = container.clientWidth;
-      const newHeight = container.clientHeight;
-      const mobileNow = newWidth < 768;
-      const tabletNow = newWidth >= 768 && newWidth < 1024;
+      const newWidth = container.clientWidth || (isMobileInline ? 360 : window.innerWidth);
+      const newHeight = container.clientHeight || (isMobileInline ? 300 : window.innerHeight);
+      if (newWidth <= 0 || newHeight <= 0) return;
+
+      const mobileNow = isMobileInline || newWidth < 768;
+      const tabletNow = !isMobileInline && newWidth >= 768 && newWidth < 1024;
 
       camera.aspect = newWidth / newHeight;
-      camera.fov = mobileNow ? 48 : 40;
-      camera.position.z = mobileNow ? 8.6 : 7.8;
+      camera.fov = isMobileInline ? 42 : (mobileNow ? 48 : 40);
+      camera.position.z = isMobileInline ? 7.5 : (mobileNow ? 8.6 : 7.8);
       camera.updateProjectionMatrix();
 
       renderer.setSize(newWidth, newHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobileNow ? 1.5 : 2));
 
       if (emblemGroupRef.current) {
-        if (mobileNow) {
+        if (isMobileInline) {
+          emblemGroupRef.current.position.set(0.0, 0.0, 0.0);
+          emblemGroupRef.current.scale.set(0.72, 0.72, 0.72);
+        } else if (mobileNow) {
           emblemGroupRef.current.position.set(0.0, -0.95, -1.8);
           emblemGroupRef.current.scale.set(0.55, 0.55, 0.55);
         } else if (tabletNow) {
@@ -480,7 +506,7 @@ export function HeroScene({ scrollProgress = 0, className }: HeroSceneProps) {
         if (!entries.length) return;
         isVisible = entries[0].isIntersecting;
       },
-      { threshold: 0.05 }
+      { threshold: 0.01 }
     );
     intersectionObserver.observe(container);
 
@@ -489,7 +515,7 @@ export function HeroScene({ scrollProgress = 0, className }: HeroSceneProps) {
     const startTime = performance.now() * 0.001;
 
     // Specific automotive idle physics parameters
-    const floatAmplitude = 0.025;
+    const floatAmplitude = isMobileInline ? 0.018 : 0.025;
     const floatSpeed = 0.35;
     const rotationAmplitude = 0.008;
 
@@ -515,14 +541,14 @@ export function HeroScene({ scrollProgress = 0, className }: HeroSceneProps) {
         // Base continuous subtle rotation + pointer parallax
         const baseRotY = Math.sin(elapsedTime * 0.18) * 0.02;
         const baseRotX = 0.03 + Math.cos(elapsedTime * 0.14) * 0.012;
-        const pointerRotY = mouse.x * 0.08;
-        const pointerRotX = -mouse.y * 0.055;
+        const pointerRotY = mouse.x * (isMobileInline ? 0.14 : 0.08);
+        const pointerRotX = -mouse.y * (isMobileInline ? 0.10 : 0.055);
 
         // Scroll-linked transition: rotates on Y/X, recedes into depth and rises
-        const scrollRotY = scroll * Math.PI * 0.45;
+        const scrollRotY = isMobileInline ? scroll * 0.2 : scroll * Math.PI * 0.45;
         const scrollRotX = scroll * 0.35;
-        const scrollY = scroll * 2.2;
-        const scrollZ = -scroll * 3.5;
+        const scrollY = isMobileInline ? 0 : scroll * 2.2;
+        const scrollZ = isMobileInline ? 0 : -scroll * 3.5;
         const scrollScale = Math.max(0.4, 1 - scroll * 0.5);
 
         emblemGroup.rotation.y = baseRotY + pointerRotY + scrollRotY + floatRot;
@@ -530,15 +556,20 @@ export function HeroScene({ scrollProgress = 0, className }: HeroSceneProps) {
         emblemGroup.rotation.z = Math.sin(elapsedTime * 0.2) * 0.008 - scroll * 0.2;
 
         // Combine base position with pointer parallax & scroll offset
-        const mobileActive = (container.clientWidth || window.innerWidth) < 768;
-        const tabletActive = (container.clientWidth || window.innerWidth) >= 768 && (container.clientWidth || window.innerWidth) < 1024;
+        const mobileActive = isMobileInline || (container.clientWidth || window.innerWidth) < 768;
+        const tabletActive = !isMobileInline && (container.clientWidth || window.innerWidth) >= 768 && (container.clientWidth || window.innerWidth) < 1024;
         
         let baseOffsetX = 2.2;
         let baseOffsetY = 0.0;
         let baseOffsetZ = 0.0;
         let baseScale = 0.86;
 
-        if (mobileActive) {
+        if (isMobileInline) {
+          baseOffsetX = 0.0;
+          baseOffsetY = 0.0;
+          baseOffsetZ = 0.0;
+          baseScale = 0.72;
+        } else if (mobileActive) {
           baseOffsetX = 0.0;
           baseOffsetY = -0.95;
           baseOffsetZ = -1.8;
@@ -568,6 +599,7 @@ export function HeroScene({ scrollProgress = 0, className }: HeroSceneProps) {
       intersectionObserver.disconnect();
       renderer.domElement.removeEventListener('webglcontextlost', handleContextLost);
       window.removeEventListener('mousemove', handlePointerMove);
+      container.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('resize', handleResize);
 
       emblemGroup.traverse((obj) => {
@@ -592,6 +624,41 @@ export function HeroScene({ scrollProgress = 0, className }: HeroSceneProps) {
   // Static high-end SVG fallback if WebGL is unavailable or reduced motion is requested
   // Faithfully matches the exact 8-segment sculpted silhouette with the 1 signature green blade!
   if (!hasWebGL || reducedMotion) {
+    if (isMobileInline) {
+      return (
+        <div className={`relative w-full h-[260px] xs:h-[300px] sm:h-[340px] rounded-xl border border-brand-border/40 bg-brand-surface/30 backdrop-blur-sm flex items-center justify-center p-4 ${className || ''}`}>
+          <div className="relative h-44 w-44 opacity-90">
+            <svg viewBox="-2.2 -2.2 4.4 4.4" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full">
+              <circle cx="1.1" cy="-0.9" r="1.2" fill="#35E85B" opacity="0.18" filter="blur(20px)" />
+              <defs>
+                <linearGradient id="fallbackChromeGradM" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#FFFFFF" />
+                  <stop offset="25%" stopColor="#8A928C" />
+                  <stop offset="50%" stopColor="#FFFFFF" />
+                  <stop offset="75%" stopColor="#1E2420" />
+                  <stop offset="100%" stopColor="#D2DAD4" />
+                </linearGradient>
+                <linearGradient id="fallbackGreenGradM" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#75FF92" />
+                  <stop offset="35%" stopColor="#35E85B" />
+                  <stop offset="100%" stopColor="#0E4A1C" />
+                </linearGradient>
+              </defs>
+              {EMBLEM_SEGMENTS.map((seg) => (
+                <path
+                  key={seg.id}
+                  d={seg.svgPath}
+                  fill={seg.isGreen ? 'url(#fallbackGreenGradM)' : 'url(#fallbackChromeGradM)'}
+                  stroke={seg.isGreen ? '#75FF92' : '#FFFFFF'}
+                  strokeWidth={seg.isGreen ? 0.03 : 0.015}
+                />
+              ))}
+            </svg>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className={`relative flex items-center justify-center pointer-events-none ${className || ''}`}>
         <div className="relative h-72 w-72 tablet:h-[420px] tablet:w-[420px] opacity-90">
@@ -622,6 +689,22 @@ export function HeroScene({ scrollProgress = 0, className }: HeroSceneProps) {
             ))}
           </svg>
         </div>
+      </div>
+    );
+  }
+
+  if (isMobileInline) {
+    return (
+      <div
+        ref={mountRef}
+        aria-hidden="true"
+        className={`relative w-full h-[260px] xs:h-[300px] sm:h-[340px] rounded-xl border border-brand-border/40 bg-brand-surface/30 backdrop-blur-sm overflow-hidden pointer-events-auto flex items-center justify-center group ${className || ''}`}
+      >
+        {/* Architectural Corner Reticles */}
+        <span className="absolute top-2 left-2 font-mono text-[10px] text-brand-neon/60 select-none pointer-events-none">⌜</span>
+        <span className="absolute top-2 right-2 font-mono text-[10px] text-brand-neon/60 select-none pointer-events-none">⌝</span>
+        <span className="absolute bottom-2 left-2 font-mono text-[10px] text-brand-neon/60 select-none pointer-events-none">⌞</span>
+        <span className="absolute bottom-2 right-2 font-mono text-[10px] text-brand-neon/60 select-none pointer-events-none">⌟</span>
       </div>
     );
   }

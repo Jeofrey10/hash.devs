@@ -51,7 +51,7 @@ export function Navigation() {
           isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
         )}
       >
-        <div className="mx-auto flex w-full max-w-container items-center justify-between px-page-x">
+        <div className="mx-auto flex w-full max-w-container items-center justify-between px-page-x min-w-0">
           {/* LEFT: HASH.DEVS Official Brand Logo + Neon Green Indicator */}
           <Link
             to="/"

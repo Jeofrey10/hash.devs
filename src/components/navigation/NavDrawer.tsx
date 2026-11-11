@@ -153,7 +153,7 @@ export function NavDrawer({ isOpen, onClose }: NavDrawerProps) {
       role="dialog"
       aria-modal="true"
       aria-label="Site Navigation"
-      className="fixed inset-0 z-dropdown invisible overflow-hidden"
+      className="fixed inset-0 z-dropdown invisible overflow-hidden max-w-full"
     >
       {/* Background Curtain Layer */}
       <div

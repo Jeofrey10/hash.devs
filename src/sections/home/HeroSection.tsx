@@ -11,6 +11,7 @@ export function HeroSection() {
   const contentWrapperRef = useRef<HTMLDivElement>(null);
   const eyebrowRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
+  const supportingTextRef = useRef<HTMLParagraphElement>(null);
   const ctaGroupRef = useRef<HTMLDivElement>(null);
   const metaRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +27,7 @@ export function HeroSection() {
       container: sectionRef.current,
       eyebrow: eyebrowRef.current,
       headlineLines,
-      supportingText: null,
+      supportingText: supportingTextRef.current,
       ctaGroup: ctaGroupRef.current,
       meta: metaRef.current,
     });
@@ -72,8 +73,10 @@ export function HeroSection() {
         className="pointer-events-none absolute bottom-10 left-1/3 z-0 h-[450px] w-[450px] rounded-full bg-brand-graphite/40 blur-[100px]"
       />
 
-      {/* 3. Three.js 3D Emblem Canvas Scene */}
-      <HeroScene scrollProgress={scrollProgress} />
+      {/* 3. Three.js 3D Emblem Canvas Scene — Desktop Full-Screen Canvas (laptop: and up) */}
+      <div className="hidden laptop:block">
+        <HeroScene scrollProgress={scrollProgress} />
+      </div>
 
       {/* 4. Foreground Hero Typography & Interactive Content */}
       <MainContainer size="default" className="relative z-content">
@@ -81,8 +84,10 @@ export function HeroSection() {
           ref={contentWrapperRef}
           eyebrowRef={eyebrowRef}
           headlineRef={headlineRef}
+          supportingTextRef={supportingTextRef}
           ctaGroupRef={ctaGroupRef}
           metaRef={metaRef}
+          mobileScene={<HeroScene scrollProgress={scrollProgress} isMobileInline />}
         />
       </MainContainer>
 

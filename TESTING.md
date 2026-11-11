@@ -50,13 +50,29 @@ Creative technology websites require specialized testing methodologies that vali
 
 ## 3. Cross-Device & Responsive Verification Matrix
 
-| Device Profile | Viewport Range | Tested Resolutions | Key Checks | Status |
-| :--- | :--- | :--- | :--- | :--- |
-| **Small Mobile** | `320px – 374px` | 320×568 (iPhone SE) | No horizontal overflow, headline scales cleanly via clamp(), mobile nav targets >= 48px | `PASS` |
-| **Standard Mobile**| `375px – 767px` | 390×844 (iPhone 15) | Touch gesture responsiveness, 3D emblem scaled to 0.75x to prevent text clash | `PASS` |
-| **Tablet** | `768px – 1023px`| 768×1024 (iPad Air) | Hybrid layout, center nav links transition smoothly, scroll indicator visible | `PASS` |
-| **Laptop** | `1024px – 1439px`| 1280×800 (MacBook Air)| Desktop navigation pill centered, sound equalizer active, 3D emblem offset right | `PASS` |
-| **Desktop / 4K** | `1440px+` | 1920×1080, 2560×1440 | Max container width constraint (1720px), smooth 60fps WebGL rendering | `PASS` |
+### 3.1 8-Viewport Mobile & Desktop Verification Audit (Mobile Responsive Repair Pass)
+
+| Device Profile | Dimensions | Target Category | Hero Section | 3D Emblem Canvas | Horiz. Overflow | H1 Clearance Below Header | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Compact mobile** | `320 × 568` | Small Phone | Visible (`h1=280×91`) | Rendered & framed | `0px` (`320px vs 320px`) | `top: 96px >= 80px` (OK) | `PASS` |
+| **iPhone SE** | `375 × 812` | Standard Phone | Visible (`h1=335×91`) | Rendered & framed | `0px` (`375px vs 375px`) | `top: 112px >= 80px` (OK) | `PASS` |
+| **iPhone 14/15** | `390 × 844` | Modern Standard | Visible (`h1=350×91`) | Rendered & framed | `0px` (`390px vs 390px`) | `top: 112px >= 80px` (OK) | `PASS` |
+| **Large mobile** | `430 × 932` | Max/Plus Phone | Visible (`h1=390×91`) | Rendered & framed | `0px` (`430px vs 430px`) | `top: 112px >= 80px` (OK) | `PASS` |
+| **Small tablet** | `768 × 1024` | Tablet Portrait | Visible (`h1=701×155`) | Rendered & framed | `0px` (`762px vs 762px`) | `top: 128px >= 80px` (OK) | `PASS` |
+| **Laptop** | `1280 × 800` | Compact Laptop | Visible (`h1=656×182`) | Desktop Canvas (right) | `0px` (`1274px vs 1274px`) | `top: 112px >= 80px` (OK) | `PASS` |
+| **Desktop** | `1440 × 900` | Standard Desktop | Visible (`h1=686×182`) | Desktop Canvas (right) | `0px` (`1434px vs 1434px`) | `top: 112px >= 80px` (OK) | `PASS` |
+| **Ultrawide** | `1920 × 1080` | Pro Widescreen | Visible (`h1=796×182`) | Desktop Canvas (right) | `0px` (`1914px vs 1914px`) | `top: 112px >= 80px` (OK) | `PASS` |
+
+### 3.2 Mobile Internal Studio Route Horizontal Overflow Audit (375 × 812)
+
+| Route | Page Type | Client Width | Scroll Width | Page Horiz Overflow | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `/` | Homepage | `375px` | `375px` | `0px` | `PASS` |
+| `/work/pixwall` | Case Study (Deepest nested) | `375px` | `375px` | `0px` (Fixed from 488px) | `PASS` |
+| `/about` | Studio About Page | `375px` | `375px` | `0px` | `PASS` |
+| `/services` | Capabilities Page | `375px` | `375px` | `0px` | `PASS` |
+| `/work` | Project Archive | `375px` | `375px` | `0px` | `PASS` |
+| `/contact` | Project Initiation | `375px` | `375px` | `0px` | `PASS` |
 
 ---
 

@@ -22,7 +22,7 @@ export function CaseStudyNavigation({ caseStudy }: CaseStudyNavigationProps) {
           {prevStudy && (
             <Link
               to={`/work/${prevStudy.id}`}
-              className="group relative flex flex-col justify-between p-8 sm:p-10 rounded-2xl border border-brand-border/80 bg-brand-surface/40 hover:border-brand-neon/60 hover:bg-brand-surface-elevated/80 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon focus-visible:ring-offset-2 focus-visible:ring-offset-brand-obsidian"
+              className="group relative flex flex-col justify-between p-6 sm:p-10 rounded-2xl border border-brand-border/80 bg-brand-surface/40 hover:border-brand-neon/60 hover:bg-brand-surface-elevated/80 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon focus-visible:ring-offset-2 focus-visible:ring-offset-brand-obsidian min-w-0 w-full"
               aria-label={`Explore previous commission: ${prevStudy.title}`}
             >
               <div className="flex items-center justify-between border-b border-brand-border/60 pb-4 font-mono text-xs text-brand-muted">
@@ -33,11 +33,11 @@ export function CaseStudyNavigation({ caseStudy }: CaseStudyNavigationProps) {
                 <span className="text-brand-neon font-bold">[{prevStudy.index}]</span>
               </div>
 
-              <div className="my-6">
+              <div className="my-6 min-w-0">
                 <span className="font-mono text-[10px] text-brand-muted uppercase tracking-wider block mb-1">
                   {prevStudy.category}
                 </span>
-                <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-brand-white tracking-tight uppercase group-hover:text-brand-neon transition-colors">
+                <h3 className="font-display text-2xl xs:text-3xl sm:text-4xl font-extrabold text-brand-white tracking-tight uppercase group-hover:text-brand-neon transition-colors break-words">
                   {prevStudy.title}
                 </h3>
                 <p className="mt-2 font-body text-xs sm:text-sm text-brand-muted font-light line-clamp-2">
@@ -58,7 +58,7 @@ export function CaseStudyNavigation({ caseStudy }: CaseStudyNavigationProps) {
           {nextStudy && (
             <Link
               to={`/work/${nextStudy.id}`}
-              className="group relative flex flex-col justify-between p-8 sm:p-10 rounded-2xl border border-brand-border/80 bg-brand-surface/40 hover:border-brand-neon/60 hover:bg-brand-surface-elevated/80 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon focus-visible:ring-offset-2 focus-visible:ring-offset-brand-obsidian"
+              className="group relative flex flex-col justify-between p-6 sm:p-10 rounded-2xl border border-brand-border/80 bg-brand-surface/40 hover:border-brand-neon/60 hover:bg-brand-surface-elevated/80 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-neon focus-visible:ring-offset-2 focus-visible:ring-offset-brand-obsidian min-w-0 w-full"
               aria-label={`Explore next commission: ${nextStudy.title}`}
             >
               <div className="flex items-center justify-between border-b border-brand-border/60 pb-4 font-mono text-xs text-brand-muted">
@@ -69,11 +69,11 @@ export function CaseStudyNavigation({ caseStudy }: CaseStudyNavigationProps) {
                 <span className="text-brand-neon font-bold">[{nextStudy.index}]</span>
               </div>
 
-              <div className="my-6">
+              <div className="my-6 min-w-0">
                 <span className="font-mono text-[10px] text-brand-muted uppercase tracking-wider block mb-1">
                   {nextStudy.category}
                 </span>
-                <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-brand-white tracking-tight uppercase group-hover:text-brand-neon transition-colors">
+                <h3 className="font-display text-2xl xs:text-3xl sm:text-4xl font-extrabold text-brand-white tracking-tight uppercase group-hover:text-brand-neon transition-colors break-words">
                   {nextStudy.title}
                 </h3>
                 <p className="mt-2 font-body text-xs sm:text-sm text-brand-muted font-light line-clamp-2">

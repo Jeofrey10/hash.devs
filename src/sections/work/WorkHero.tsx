@@ -51,15 +51,15 @@ export function WorkHero() {
         {/* Monumental Syne Display Headline */}
         <div className="grid grid-cols-1 laptop:grid-cols-12 gap-8 laptop:gap-12 items-end">
           <div className="laptop:col-span-8 min-w-0">
-            <h1 className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.92] text-[2.75rem] xs:text-[3.25rem] sm:text-6xl tablet:text-[5rem] laptop:text-[6rem] desktop:text-[7rem] wide:text-[8rem]">
+            <h1 className="font-display font-extrabold tracking-tighter text-brand-white leading-[0.92] text-[clamp(1.85rem,6.5vw,7.5rem)] min-w-0 w-full break-words">
               <div className="overflow-hidden mb-1">
-                <span className="inline-block">{hero.headline.line1}</span>
+                <span className="inline-block pr-2">{hero.headline.line1}</span>
               </div>
               <div className="overflow-hidden mb-1">
-                <span className="inline-block text-brand-neon">{hero.headline.line2}</span>
+                <span className="inline-block text-brand-neon pr-2">{hero.headline.line2}</span>
               </div>
               <div className="overflow-hidden">
-                <span className="inline-block">{hero.headline.line3}</span>
+                <span className="inline-block pr-2">{hero.headline.line3}</span>
               </div>
             </h1>
           </div>

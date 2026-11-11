@@ -25,10 +25,11 @@ export function setupHeroScrollTransition(options: SetupHeroScrollOptions): Scro
       const progress = self.progress; // 0 to 1
       onScrollProgress(progress);
 
-      // Parallax transform on headline content
+      // Parallax transform on headline content with guarded opacity curve (never fades out prematurely)
+      const opacityVal = progress <= 0.08 ? 1 : Math.max(0, 1 - (progress - 0.08) * 1.45);
       gsap.to(contentElement, {
-        y: progress * 160,
-        opacity: Math.max(0, 1 - progress * 1.35),
+        y: progress * 130,
+        opacity: opacityVal,
         ease: 'none',
         duration: 0.1,
         overwrite: 'auto',

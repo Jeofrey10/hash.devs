@@ -1091,3 +1091,43 @@
   - [x] Multi-viewport audit across 8 target viewports (1920×1080 down to 375×812) confirmed `0px` horizontal overflow.
   - [x] Browser console verified 0 warnings and 0 errors.
   - [x] Captured 7 proof screenshots and documented 12-section launch readiness audit report.
+
+---
+
+## Phase 10: Mobile Responsive Repair & Hero Restoration (COMPLETE)
+
+- [x] **Root Cause Investigation & Diagnostic Audit**
+  - [x] Diagnosed mobile hero rendering occlusion: on mobile screens (<1024px), full-width content overlapped the centered Three.js canvas placed in the background layer (`z-index: 0`), pushing the emblem behind text and buttons (`top: 167px` to `bottom: 645px`) and occluding it.
+  - [x] Diagnosed fixed header collision: `justify-center` in `min-h-[100svh]` caused hero content to push into the 80px fixed navigation header on viewports under 600px height.
+  - [x] Diagnosed headline clipping: rigid `whitespace-nowrap` on `EXPERIENCES.` caused horizontal overflow on narrow mobile screens (<390px).
+  - [x] Diagnosed case study & brand statement text blowout: unbroken long words (`INFRASTRUCTURE`, `EXPERIMENTAL`, `CONVENTIONS.`, `WEBSITES.`) without `break-words` generated horizontal overflow up to 488px.
+- [x] **Mobile Hero Architecture & 3D Stage Restoration**
+  - [x] Created dedicated mobile inline 3D stage (`isMobileInline` mode in `HeroScene.tsx`) embedded directly within `HeroContent.tsx`.
+  - [x] Framed mobile 3D scene in an architectural viewport container with corner reticles (`⌜`, `⌝`, `⌞`, `⌟`) and height `260px` to `340px`.
+  - [x] Centered 3D emblem at `(0, 0, 0)` with scale `0.72` and camera `fov: 42`, `position: (0, 0, 7.5)`, avoiding text collisions.
+  - [x] Added touch-based interactive rotation via `touchmove` event handling on mobile screens.
+  - [x] Capped mobile device pixel ratio at `1.5` for 60fps performance and low battery consumption.
+  - [x] Added studio supporting description paragraph (`supportingTextRef`) beneath the headline.
+  - [x] Adjusted container padding (`pt-24 xs:pt-28 sm:pt-32 laptop:pt-28`) ensuring clear clearance beneath the 80px fixed header.
+  - [x] Softened scroll exit transition curve in `HeroScrollTransition.ts` to prevent premature fading on mobile.
+- [x] **Global Mobile Typography & Horizontal Overflow Elimination**
+  - [x] `HeroContent.tsx`: Fluid headline `clamp(1.85rem, 6.8vw, 3.85rem)`, `break-words`, and `pr-2`.
+  - [x] `BrandStatement.tsx`: Fluid headline `clamp(1.75rem, 6.8vw, 6.5rem)`, removed rigid `whitespace-nowrap`, applied `break-words`.
+  - [x] `StudioProcess.tsx`: Fluid headline `clamp(1.85rem, 5.5vw, 6.25rem)` with `break-words` and `pr-2`.
+  - [x] `CaseStudyVisual.tsx`: Added `break-words` and fluid sizing to `COMMERCE INFRASTRUCTURE & RENDERING PIPELINE`.
+  - [x] `CaseStudyNavigation.tsx`: Constrained previous/next project headings with `min-w-0` and `break-words`.
+  - [x] `AboutHero.tsx`, `ServicesHero.tsx`, `WorkHero.tsx`: Fluid typography and protective padding on display words.
+  - [x] `CollaborationBanner.tsx`: Constrained `together.` display heading to avoid 480px overflow.
+  - [x] Navigation components: Added `min-w-0` and `max-w-full` protective bounds.
+- [x] **Multi-Viewport Audit & Verification**
+  - [x] Verified zero horizontal overflow (`scrollWidth === clientWidth`) across all 8 target viewports:
+    - Compact mobile: `320 × 568` (`320px vs 320px`) — Hero=true, Canvas=true, Overflow=false
+    - iPhone SE: `375 × 812` (`375px vs 375px`) — Hero=true, Canvas=true, Overflow=false
+    - iPhone 14/15: `390 × 844` (`390px vs 390px`) — Hero=true, Canvas=true, Overflow=false
+    - Large mobile: `430 × 932` (`430px vs 430px`) — Hero=true, Canvas=true, Overflow=false
+    - Small tablet: `768 × 1024` (`762px vs 762px`) — Hero=true, Canvas=true, Overflow=false
+    - Laptop: `1280 × 800` (`1274px vs 1274px`) — Hero=true, Canvas=true, Overflow=false
+    - Desktop: `1440 × 900` (`1434px vs 1434px`) — Hero=true, Canvas=true, Overflow=false
+    - Ultrawide: `1920 × 1080` (`1914px vs 1914px`) — Hero=true, Canvas=true, Overflow=false
+  - [x] Verified zero page horizontal overflow across all internal studio routes (`/work/pixwall`, `/about`, `/services`, `/work`, `/contact`).
+  - [x] `npx tsc --noEmit` passed with 0 errors; `npm run build` compiled clean with 0 errors.
